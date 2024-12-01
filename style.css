@@ -162,7 +162,7 @@ h2 {
 	color: #111;
 }
 
-/* Testimonial Section */
+
 .testimonial-section {
 	width: 100%;
 	max-width: 800px;
@@ -227,7 +227,7 @@ h2 {
 	color: #555;
 }
 
-/* Carousel Indicators */
+
 .carousel-indicators {
 	display: flex;
 	justify-content: center;
@@ -246,7 +246,7 @@ h2 {
 	background-color: #8c52ff;
 }
 
-/* Footer Styling */
+
 .footer {
 	background-color: #1a1a1a;
 	padding: 2rem;
@@ -293,7 +293,7 @@ h2 {
 	color: #ffffff;
 }
 
-/* Footer Sections */
+
 .footer-section h3 {
 	font-size: 1.2rem;
 	margin-bottom: 0.5rem;
@@ -318,7 +318,7 @@ h2 {
 	color: #ffffff;
 }
 
-/* Footer Bottom */
+
 .footer-bottom {
 	text-align: center;
 	margin-top: 2rem;
