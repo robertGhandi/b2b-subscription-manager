@@ -5,19 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>SubGenius</title>
 		<link rel="stylesheet" href="./style.css" />
-		
 	</head>
 	<body>
 		<nav class="navbar">
 			<div class="container">
-				<div class="logo">SubGenius</div>
+				<div class="logo"><span id="sub">Sub</span>Genius</div>
 				<ul class="nav">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Our Plans</a></li>
+					<li><a href="#">Our plans</a></li>
 					<li><a href="#">Resources</a></li>
 				</ul>
-				<button onclick="SignUp()" class="signup-button">Signup</button>
+				<div class="btn">
+					<button onclick="SignUp()" class="signup-button">
+						Signup
+					</button>
+					<button onclick="LogIn()" class="login-btn">Log in</button>
+				</div>
 			</div>
 		</nav>
 		<section class="hero-section">
@@ -145,7 +149,6 @@
 
 		<footer class="footer">
 			<div class="footer-container">
-				
 				<div class="footer-logo">
 					<h2>Sub<span class="highlight">Genius</span></h2>
 					<p>
@@ -159,7 +162,6 @@
 					</div>
 				</div>
 
-				
 				<div class="footer-section">
 					<h3>Quicklinks</h3>
 					<ul>
@@ -170,7 +172,6 @@
 					</ul>
 				</div>
 
-				
 				<div class="footer-section">
 					<h3>Social Links</h3>
 					<ul>
@@ -185,6 +186,6 @@
 				<p>&copy; 2024 SubGenius. All rights reserved.</p>
 			</div>
 		</footer>
-        <script src="index.js"></script>
+		<script src="index.js"></script>
 	</body>
 </html>
