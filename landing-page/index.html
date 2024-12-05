@@ -10,17 +10,30 @@
 		<nav class="navbar">
 			<div class="container">
 				<div class="logo"><span id="sub">Sub</span>Genius</div>
+
 				<ul class="nav">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="#">Our plans</a></li>
+
+					<li class="dropdown">
+						<a href="#" class="nav-link dropdown-toggle"
+							>Our plans</a
+						>
+						<ul class="dropdown-menu">
+							<li><a href="#">option 1</a></li>
+							<li>
+								<a href="#">option 2</a>
+							</li>
+						</ul>
+					</li>
+
 					<li><a href="#">Resources</a></li>
 				</ul>
-				<div class="btn">
-					<button onclick="SignUp()" class="signup-button">
-						Signup
+				<div>
+					<button class="signup-btn" onclick="SignUp()">
+						Sign Up
 					</button>
-					<button onclick="LogIn()" class="login-btn">Log in</button>
+					<button class="login-btn" onclick="LogIn()">Log in</button>
 				</div>
 			</div>
 		</nav>
@@ -49,7 +62,7 @@
 						significant hurdles in managing their Subscriptions and
 						accurately predicting future revenue. Inefficiencies,
 						revenue leakage and poor decision making can hinder
-						growth and profitability./p>
+						growth and profitability.
 					</p>
 				</div>
 				<div class="box">
@@ -115,7 +128,9 @@
 		<section class="testimonial-section">
 			<h2>What our customers are saying</h2>
 			<div class="testimonial-card">
-				<button class="nav-button left">&lt;</button>
+				<button class="nav-button left" aria-label="Previous">
+					&lt;
+				</button>
 
 				<div class="testimonial-content">
 					<div class="customer-photo">
@@ -136,8 +151,27 @@
 						<p class="customer-name">Alex, CEO of GrowthTech</p>
 					</div>
 				</div>
+				<div class="testimonial-content">
+					<div class="customer-photo">
+						<img
+							src="./images/review-image.svg"
+							alt="Customer Photo"
+						/>
+					</div>
+					<div class="testimonial-text">
+						<p>
+							"The automation features have been a lifesaver for
+							our team. Billing errors are a thing of the past and
+							the customer insights have helped us make better
+							data-driven decisions"
+						</p>
+						<p class="customer-name">James, CEO of MaVa Tech</p>
+					</div>
+				</div>
 
-				<button class="nav-button right">&gt;</button>
+				<button class="nav-button right" onclick="showNext()">
+					&gt;
+				</button>
 			</div>
 
 			<div class="carousel-indicators">
