@@ -1,14 +1,23 @@
-function handleMenuClick(menu) {
-	const menuItems = document.querySelectorAll(".menu-item");
-	menuItems.forEach((item) => item.classList.remove("active"));
+const navItems = document.querySelectorAll(".sidebar nav ul li");
+const contentSections = document.querySelectorAll(".content-section");
 
-	const activeItem = Array.from(menuItems).find((item) =>
-		item.textContent.toLowerCase().includes(menu)
-	);
-	if (activeItem) activeItem.classList.add("active");
+navItems.forEach((item) =>
+  item.addEventListener("click", () => {
+    // Highlight the active menu item
+    navItems.forEach((nav) => nav.classList.remove("active"));
+    item.classList.add("active");
 
-	console.log(`${menu} clicked`);
-}
+    // Show the corresponding content section
+    const targetSection = item.textContent.trim();
+    contentSections.forEach((section) => {
+      if (section.getAttribute("data-section") === targetSection) {
+        section.classList.add("active");
+      } else {
+        section.classList.remove("active");
+      }
+    });
+  })
+);
 
 function handleLogout() {
 	window.location.href = "../landing-page/index.html"
