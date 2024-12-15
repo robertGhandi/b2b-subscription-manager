@@ -47,8 +47,6 @@ form.addEventListener("submit", async (event) => {
 				"Signup successful! Check your email for verification.";
 			responseMessage.style.color = "green";
 			form.reset();
-
-			
 		} else {
 			responseMessage.textContent = result.error || "Signup failed";
 			setTimeout(() => {

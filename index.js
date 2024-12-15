@@ -3,7 +3,7 @@ const authRoutes = require("./routes/auth.routes");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+
 const mongoose = require("mongoose");
 const path = require("path");
 const PORT = 3000;
@@ -30,7 +30,7 @@ app.get("/reset-password", (req, res) => {
 
 const startServer = async () => {
 	try {
-		await mongoose.connect(process.env.MONGODB_URL);
+		await mongoose.connect("mongodb://127.0.0.1:27017/b2b-app");
 		console.log("Connected to database");
 		app.listen(PORT, () => {
 			console.log(`server running on port ${PORT}`);
