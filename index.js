@@ -30,7 +30,7 @@ app.get("/reset-password", (req, res) => {
 
 const startServer = async () => {
 	try {
-		await mongoose.connect("mongodb://127.0.0.1:27017/b2b-app");
+		await mongoose.connect(process.env.MONGODB_URL);
 		console.log("Connected to database");
 		app.listen(PORT, () => {
 			console.log(`server running on port ${PORT}`);
