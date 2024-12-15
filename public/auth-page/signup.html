@@ -4,43 +4,59 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Signup page</title>
-		<link rel="stylesheet" href="signup.css" />
+		<link rel="stylesheet" href="./signup.css" />
 	</head>
 	<body>
 		<main class="main">
 			<section class="signup-container">
 				<div class="btn">
-					<button onclick="closeBtn()" class="close-btn">&times;</button>
+					<button onclick="closeBtn()" class="close-btn">
+						&times;
+					</button>
 				</div>
 				<h1>Sign Up</h1>
 				<form id="signup-form" class="signup-form">
 					<div class="signup-group">
 						<input
 							class="signup-input"
+							id="full-name"
 							type="text"
 							placeholder="Full Name"
-                            required
+							required
 						/>
 						<input
 							class="signup-input"
+							id="email"
 							type="email"
 							placeholder="Email"
-                            required
+							required
 						/>
 						<input
 							class="signup-input"
+							id="password"
 							type="password"
 							placeholder="Create Password"
-                            required
+							required
 						/>
-						<button class="signup-btn">Sign Up</button>
+						<p id="password-feedback" class="password-feedback"></p>
+						<button
+							id="signup-btn"
+							class="signup-btn"
+							type="submit"
+						>
+							Sign Up
+						</button>
 					</div>
 				</form>
 				<p class="login-link">
 					Already have an account? <a href="./login.html">Log in</a>
 				</p>
-			</section>
+				<p class="response-message" id="responseMessage"></p>
+                <div id="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+            </section>
 		</main>
-        <script src="index.js"></script>
+		<script src="./signup.js"></script>
 	</body>
 </html>

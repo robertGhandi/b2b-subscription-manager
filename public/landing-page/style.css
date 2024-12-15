@@ -219,7 +219,7 @@ h2 {
 	color: #111;
 }
 
-.testimonial-section {
+.testimonials{
 	width: 100%;
 	max-width: 800px;
 	margin: 0 auto;
@@ -231,7 +231,7 @@ h2 {
 	overflow: hidden;
 }
 
-.testimonial-card {
+.testimonial-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -239,81 +239,93 @@ h2 {
 	margin: 1.5rem 0;
 }
 
-.nav-button {
-	background-color: #8c52ff;
+.testimonial-slider {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+	min-width: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	display: none;
+    flex-direction: column;
+	align-items: center;
+}
+
+
+
+.testimonial-slide.active {
+	display: flex;
+}
+
+.image img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+.quote {
+	font-size: 1rem;
+	color: #555;
+	margin-bottom: 10px;
+}
+
+.author {
+	font-size: 0.9rem;
+	font-weight: bold;
+	color: #333;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+	
+	
+    font-size: 1.5rem;
+	transform: translateY(-50%);
+	background: #8c52ff;
 	color: white;
 	border: none;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
-	font-size: 1.5rem;
+	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	cursor: pointer;
-	transform: translateY(-50%);
+    padding: 5px;
 }
 
-.nav-button:hover {
-	background-color: #6b41cc;
+.left-btn {
+	left: 10px;
 }
 
-.testimonial-content {
-	flex: 1;
-	display: none;
-	transition: opacity 0.5s ease;
+.right-btn {
+	right: 10px;
 }
 
-.testimonial-content.active {
-	display: flex;
-	opacity: 1;
-}
-
-.testimonial-section h2 {
-	margin-bottom: 50px;
-}
-
-.customer-photo img {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	margin-top: 50px;
-}
-
-.testimonial-text {
-	text-align: left;
-}
-
-.testimonial-text p {
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 50px;
-}
-
-.customer-name {
-	margin-top: 30px;
-	text-align: center;
-	font-weight: bold;
-	color: #555;
-}
-
-.carousel-indicators {
+/* Dots Navigation */
+.dots {
 	display: flex;
 	justify-content: center;
-	gap: 0.5rem;
+	margin-top: 10px;
 }
 
 .dot {
 	width: 10px;
 	height: 10px;
-	background-color: #ccc;
+	background: #ddd;
 	border-radius: 50%;
+	margin: 0 5px;
 	cursor: pointer;
 }
 
 .dot.active {
-	background-color: #8c52ff;
+	background: #6c63ff;
 }
+
+
 
 .footer {
 	background-color: #1a1a1a;
@@ -407,5 +419,13 @@ h2 {
 
 	.hero-section h1 {
 		padding-top: 20px;
+	}
+
+    .quote {
+		font-size: 0.9rem;
+	}
+
+	.author {
+		font-size: 0.8rem;
 	}
 }

@@ -1,3 +1,0 @@
-[build]
-    publish = "/landing-page"
-    include = ["/auth-page"]

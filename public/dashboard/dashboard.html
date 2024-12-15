@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SubGenius Sidebar</title>
+		<link rel="stylesheet" href="./dashboard.css" />
+	</head>
+	<body>
+		<aside class="sidebar">
+			<div class="sidebar-header">
+				<h2><span class="highlight">Sub</span>Genius</h2>
+			</div>
+			<nav>
+				<ul class="sidebar-menu">
+					<li class="menu-item active">
+						<button onclick="handleMenuClick('dashboard')">
+							<span class="icon">📊</span> Dashboard
+						</button>
+					</li>
+					<li class="menu-item">
+						<button onclick="handleMenuClick('subscription')">
+							<span class="icon"><img src="./images/subscription-icon.svg" alt=""></span> Subscription
+						</button>
+					</li>
+					<li class="menu-item">
+						<button onclick="handleMenuClick('renewals')">
+							<span class="icon"><img src="./images/renewal-icon.svg" alt=""></span> Renewals
+						</button>
+					</li>
+					<li class="menu-item">
+						<button onclick="handleMenuClick('forecasting')">
+							<i class="icon">📈</i> Forecasting
+						</button>
+					</li>
+					<li class="menu-item">
+						<button onclick="handleMenuClick('reports')">
+							<span class="icon"><img src="./images/reports-icon.svg" alt=""></span> Reports
+						</button>
+					</li>
+					<li class="menu-item">
+						<button onclick="handleMenuClick('settings')">
+							<span class="icon"><img src="./images/settings-icon.svg" alt=""></span> Settings
+						</button>
+					</li>
+				</ul>
+			</nav>
+			<button class="logout" onclick="handleLogout()">Log out</button>
+		</aside>
+		<script src="./dashboard.js"></script>
+	</body>
+</html>

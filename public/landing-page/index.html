@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>SubGenius</title>
-		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="/landing-page/style.css" />
 	</head>
 	<body>
 		<nav class="navbar">
@@ -49,7 +49,7 @@
 					</p>
 					<button class="trial-button">Start Your Free Trial</button>
 				</div>
-				<img src="./images/hero-image.svg" alt="" />
+				<img src="/landing-page/images/hero-image.svg" alt="" />
 			</div>
 		</section>
 
@@ -93,7 +93,7 @@
 			<div class="container">
 				<div class="box">
 					<h3>Automate Subscription Billing</h3>
-					<img src="./images/automate-image.svg" alt="" />
+					<img src="/landing-page/images/automate-image.svg" alt="" />
 					<p>
 						Effortlessly manage recurring payments with automated
 						subscription billing. Generate invoices and process
@@ -103,7 +103,7 @@
 				</div>
 				<div class="box">
 					<h3>Track Customer Renewal</h3>
-					<img src="./images/customer-image.svg" alt="" />
+					<img src="/landing-page/images/customer-image.svg" alt="" />
 					<p>
 						Stay ahead of renewals with real-time tracking and
 						automated reminders. Monitor subscription status and
@@ -114,7 +114,7 @@
 				</div>
 				<div class="box">
 					<h3>Revenue Forecasting</h3>
-					<img src="./images/revenue-image.svg" alt="" />
+					<img src="/landing-page/images/revenue-image.svg" alt="" />
 					<p>
 						Make smarter decisions with accurate revenue
 						projections. Analyze historical data, predict future
@@ -125,22 +125,20 @@
 				</div>
 			</div>
 		</section>
-		<section class="testimonial-section">
+		<section class="testimonials">
 			<h2>What our customers are saying</h2>
-			<div class="testimonial-card">
-				<button class="nav-button left" aria-label="Previous">
-					&lt;
-				</button>
+			<div class="testimonial-container">
+				<button class="nav-btn left-btn" id="prevBtn">&lt;</button>
 
-				<div class="testimonial-content">
-					<div class="customer-photo">
-						<img
-							src="./images/review-image.svg"
-							alt="Customer Photo"
-						/>
-					</div>
-					<div class="testimonial-text">
-						<p>
+				<div class="testimonial-slider">
+					<div class="testimonial-slide active">
+						<div class="image">
+							<img
+								src="/landing-page/images/review-image.svg"
+								alt="Customer Photo"
+							/>
+						</div>
+						<p class="quote">
 							"This platform has completely transformed how we
 							manage subscriptions. Automating billing and
 							tracking renewals has saved us countless hours, and
@@ -148,33 +146,37 @@
 							incredible insights into our growth potential. It's
 							a game-changer for any B2B startup!"
 						</p>
-						<p class="customer-name">Alex, CEO of GrowthTech</p>
+						<p class="author">Alex, CEO of GrowthTech</p>
 					</div>
-				</div>
-				<div class="testimonial-content">
-					<div class="customer-photo">
-						<img
-							src="./images/review-image.svg"
-							alt="Customer Photo"
-						/>
-					</div>
-					<div class="testimonial-text">
-						<p>
+					<div class="testimonial-slide">
+						<div class="image">
+							<img
+								src="/landing-page/images/review2.svg"
+								alt="Customer Photo"
+							/>
+						</div>
+						<p class="quote">
 							"The automation features have been a lifesaver for
 							our team. Billing errors are a thing of the past and
 							the customer insights have helped us make better
 							data-driven decisions"
 						</p>
-						<p class="customer-name">James, CEO of MaVa Tech</p>
+						<p class="author">James, CEO of MaVa Tech</p>
+					</div>
+					<div class="testimonial-slide">
+						<div class="image">
+							<img src="/landing-page/images/review-3.jpg" alt="" />
+						</div>
+						<p class="quote">
+							"Highly recommended! The forecasting tools are
+							top-notch and saved us from countless headaches."
+						</p>
+						<p class="author">John, CTO of FutureTech</p>
 					</div>
 				</div>
-
-				<button class="nav-button right" onclick="showNext()">
-					&gt;
-				</button>
+				<button class="nav-btn right-btn" id="nextBtn">&gt;</button>
 			</div>
-
-			<div class="carousel-indicators">
+			<div class="dots">
 				<span class="dot active"></span>
 				<span class="dot"></span>
 				<span class="dot"></span>
@@ -220,6 +222,6 @@
 				<p>&copy; 2024 SubGenius. All rights reserved.</p>
 			</div>
 		</footer>
-		<script src="index.js"></script>
+		<script src="/landing-page/index.js"></script>
 	</body>
 </html>
