@@ -28,12 +28,8 @@ const registerUser = async (req, res) => {
 			expiresIn: "5m",
 		});
 
-		const isLocalhost = window.location.hostname === "localhost";
-		const baseUrl = isLocalhost
-			? "http://localhost:3000"
-			: `https://${window.location.hostname}`;
-
-		const verificationLink = `${baseUrl}/api/v1/auth/verify-email?token=${encodeURIComponent(
+		
+		const verificationLink = `https://b2b-subscription-manager.vercel.app/api/v1/auth/verify-email?token=${encodeURIComponent(
 			token
 		)}`;
 

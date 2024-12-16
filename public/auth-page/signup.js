@@ -1,6 +1,6 @@
 // handle signup-form submission
 const form = document.getElementById("signup-form");
-const signupBtn = document.getElementById("signup-btn");
+
 const loadingSpinner = document.getElementById("loading-spinner");
 
 form.addEventListener("submit", async (event) => {
@@ -27,7 +27,7 @@ form.addEventListener("submit", async (event) => {
 	// Send data to backend
 	try {
 		const response = await fetch(
-			`${window.location.origin}/api/v1/auth/register`,
+			"https://b2b-subscription-manager.vercel.app/api/v1/auth/register",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },

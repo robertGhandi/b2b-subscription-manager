@@ -15,7 +15,7 @@ loginForm.addEventListener("submit", async (event) => {
 
 	try {
 		const response = await fetch(
-			`${window.location.origin}/api/v1/auth/login`,
+			"https://b2b-subscription-manager.vercel.app/api/v1/auth/login",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
