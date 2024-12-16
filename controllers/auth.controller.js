@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
 			expiresIn: "5m",
 		});
 
-		const verificationLink = `http://localhost:3000/api/v1/auth/verify-email?token=${encodeURIComponent(
+		const verificationLink = `${window.location.origin}/api/v1/auth/verify-email?token=${encodeURIComponent(
 			token
 		)}`;
 
