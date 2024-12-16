@@ -28,7 +28,12 @@ const registerUser = async (req, res) => {
 			expiresIn: "5m",
 		});
 
-		const verificationLink = `${window.location.origin}/api/v1/auth/verify-email?token=${encodeURIComponent(
+		const isLocalhost = window.location.hostname === "localhost";
+		const baseUrl = isLocalhost
+			? "http://localhost:3000"
+			: `https://${window.location.hostname}`;
+
+		const verificationLink = `${baseUrl}/api/v1/auth/verify-email?token=${encodeURIComponent(
 			token
 		)}`;
 
@@ -41,11 +46,7 @@ const registerUser = async (req, res) => {
 `;
 
 		try {
-			await sendEmail(
-				email,
-				"Verify Your Email",
-				emailTemplate
-			);
+			await sendEmail(email, "Verify Your Email", emailTemplate);
 		} catch (emailError) {
 			console.error(
 				"Failed to send verification email: ",
@@ -150,66 +151,65 @@ const verifyEmail = async (req, res) => {
 };
 
 const forgotPassword = async (req, res) => {
-    const { email } = req.body
+	const { email } = req.body;
 
-    try {
-        //check if user exists
-        const user = await User.findOne({ email })
+	try {
+		//check if user exists
+		const user = await User.findOne({ email });
 
-        if (!user) {
-            return res.status(404).json({
-                status: "error",
-				message: "user not found"
-            })
-        }
+		if (!user) {
+			return res.status(404).json({
+				status: "error",
+				message: "user not found",
+			});
+		}
 
-        //Generate a reset token
-        const resetToken = jwt.sign({ email }, "1234!@#$%<{*&)", {
+		//Generate a reset token
+		const resetToken = jwt.sign({ email }, "1234!@#$%<{*&)", {
 			expiresIn: "10m",
 		});
 
-        const resetLink = `${req.protocol}://${req.get("host")}/reset-password?token=${resetToken}`
+		const resetLink = `${req.protocol}://${req.get(
+			"host"
+		)}/reset-password?token=${resetToken}`;
 
-        const emailTemplate = `
+		const emailTemplate = `
         <p>Hi ${user.fullName},</p>
         <p>Reset your password by clicking the link below:</p>
         <p><a href="${resetLink}">Reset Your Password</a></p>
         <p>This link is valid for 10 minutes</p>
         <p>If you didn’t request this, you can safely ignore this email.</p>
       `;
-      
-              try {
-                  await sendEmail(
-                      email,
-                      "Verify Your Email",
-                      emailTemplate
-                  );
-              } catch (emailError) {
-                  console.error(
-                      "Failed to send reset link email: ",
-                      emailError.message
-                  );
-                  return res.status(500).json({
-                      status: "error",
-                      message: "Failed to send verification email",
-                  });
-              }
-      
-              res.status(200).json({
-                  status: "success",
-                  message: "Password reset email sent",
-                
-              });
 
-    } catch (error) {
-        res.status(500).json({ message: "Error sending email", error: error.message})
-    }
-}
+		try {
+			await sendEmail(email, "Verify Your Email", emailTemplate);
+		} catch (emailError) {
+			console.error(
+				"Failed to send reset link email: ",
+				emailError.message
+			);
+			return res.status(500).json({
+				status: "error",
+				message: "Failed to send verification email",
+			});
+		}
+
+		res.status(200).json({
+			status: "success",
+			message: "Password reset email sent",
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: "Error sending email",
+			error: error.message,
+		});
+	}
+};
 
 const resetPassword = async (req, res) => {
-    const { token, newPassword } = req.body
+	const { token, newPassword } = req.body;
 
-    try {
+	try {
 		const decoded = jwt.verify(token, "1234!@#$%<{*&)");
 
 		if (!decoded.email) {
@@ -222,18 +222,22 @@ const resetPassword = async (req, res) => {
 			return res
 				.status(400)
 				.json({ message: "Invalid token or user not found." });
-		
-        //hash new password and update user
-        const hashedPassword = await bcrypt.hash(newPassword, 10)
-        user.password = hashedPassword
 
-        res.status(200).json({ message: "Password reset successful"})
-		
+		//hash new password and update user
+		const hashedPassword = await bcrypt.hash(newPassword, 10);
+		user.password = hashedPassword;
+
+		res.status(200).json({ message: "Password reset successful" });
 	} catch (error) {
 		console.error("Password reset Error: ", error);
 		res.status(400).json({ message: "Invalid or expired token.", error });
 	}
-}
+};
 
-
-module.exports = { registerUser, loginUser, verifyEmail, forgotPassword, resetPassword };
+module.exports = {
+	registerUser,
+	loginUser,
+	verifyEmail,
+	forgotPassword,
+	resetPassword,
+};
