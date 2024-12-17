@@ -123,15 +123,6 @@ body {
 	margin: 10px auto;
 }
 
-@keyframes spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
 .password-container {
     position: relative;
     display: flex;
@@ -158,8 +149,18 @@ body {
     color: #7f56d8;
 }
 
-
 .eye-icon {
     font-size: 18px;
 }
+
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 
