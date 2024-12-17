@@ -1,6 +1,5 @@
 // handle login-form submission
 const loginForm = document.getElementById("login-form");
-const loginBtn = document.getElementById("Login-btn");
 const loadingSpinner = document.getElementById("loading-spinner");
 
 loginForm.addEventListener("submit", async (event) => {
@@ -8,8 +7,6 @@ loginForm.addEventListener("submit", async (event) => {
 
 	const email = document.getElementById("email").value.trim();
 	const password = document.getElementById("password").value.trim();
-
-	
 
 	showLoading(true);
 
@@ -30,25 +27,22 @@ loginForm.addEventListener("submit", async (event) => {
 			responseMessage.textContent = "Login successful!";
 			responseMessage.style.color = "green";
 
-            setTimeout(() => {
-                window.location.href = "../dashboard/dashboard.html"
-            }, 2000)
-
+			setTimeout(() => {
+				window.location.href = "../dashboard/dashboard.html";
+			}, 2000);
 		} else {
 			responseMessage.textContent = result.message || "Login failed";
-            setTimeout(() => {
-                responseMessage.textContent = ""
-            }, 4000)
-			
+			setTimeout(() => {
+				responseMessage.textContent = "";
+			}, 4000);
 		}
 	} catch (error) {
 		console.error("Error:", error);
-        responseMessage.textContent = "Something went wrong. Please try again."
+		responseMessage.textContent = "Something went wrong. Please try again.";
 
-        setTimeout(() => {
-            responseMessage.textContent = ""
-        }, 4000)
-
+		setTimeout(() => {
+			responseMessage.textContent = "";
+		}, 4000);
 	} finally {
 		showLoading(false);
 	}

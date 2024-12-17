@@ -165,9 +165,7 @@ const forgotPassword = async (req, res) => {
 			expiresIn: "10m",
 		});
 
-		const resetLink = `${req.protocol}://${req.get(
-			"host"
-		)}/reset-password?token=${resetToken}`;
+		const resetLink = `https://b2b-subscription-manager.vercel.app/reset-password?token=${encodeURIComponent(resetToken)}`;
 
 		const emailTemplate = `
         <p>Hi ${user.fullName},</p>
@@ -186,7 +184,7 @@ const forgotPassword = async (req, res) => {
 			);
 			return res.status(500).json({
 				status: "error",
-				message: "Failed to send verification email",
+				message: "Failed to send password reset email",
 			});
 		}
 
@@ -203,9 +201,14 @@ const forgotPassword = async (req, res) => {
 };
 
 const resetPassword = async (req, res) => {
-	const { token, newPassword } = req.body;
+	const { newPassword } = req.body;
+    const { token } = req.query
 
 	try {
+
+        if (!newPassword || !token) {
+            return res.status(400).json({ message: "password or token needed."})
+        }
 		const decoded = jwt.verify(token, "1234!@#$%<{*&)");
 
 		if (!decoded.email) {
@@ -222,10 +225,16 @@ const resetPassword = async (req, res) => {
 		//hash new password and update user
 		const hashedPassword = await bcrypt.hash(newPassword, 10);
 		user.password = hashedPassword;
+        await user.save();
 
 		res.status(200).json({ message: "Password reset successful" });
 	} catch (error) {
 		console.error("Password reset Error: ", error);
+
+        if (error.name === "TokenExpiredError") {
+            return res.status(400).json({ message: "Token has expired"})
+        }
+
 		res.status(400).json({ message: "Invalid or expired token.", error });
 	}
 };

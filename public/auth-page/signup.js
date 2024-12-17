@@ -1,6 +1,5 @@
 // handle signup-form submission
 const form = document.getElementById("signup-form");
-
 const loadingSpinner = document.getElementById("loading-spinner");
 
 form.addEventListener("submit", async (event) => {

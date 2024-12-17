@@ -1,9 +1,6 @@
 // handle login-form submission
 const resetPasswordForm = document.getElementById("reset-form");
-const resetBtn = document.getElementById("reset-btn");
 const loadingSpinner = document.getElementById("loading-spinner");
-
-const token = document.querySelector('input[name="token"]').value;
 
 resetPasswordForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
@@ -25,11 +22,11 @@ resetPasswordForm.addEventListener("submit", async (event) => {
 
 	try {
 		const response = await fetch(
-			`${window.location.origin}/api/v1/auth/reset-password`,
+			"https://b2b-subscription-manager.vercel.app/api/v1/auth/reset-password",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ token, newPassword }),
+				body: JSON.stringify({ newPassword }),
 			}
 		);
 
