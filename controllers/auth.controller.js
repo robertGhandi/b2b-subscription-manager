@@ -176,7 +176,7 @@ const forgotPassword = async (req, res) => {
       `;
 
 		try {
-			await sendEmail(email, "Verify Your Email", emailTemplate);
+			await sendEmail(email, "Reset Your Password", emailTemplate);
 		} catch (emailError) {
 			console.error(
 				"Failed to send reset link email: ",
@@ -201,8 +201,10 @@ const forgotPassword = async (req, res) => {
 };
 
 const resetPassword = async (req, res) => {
-	const { newPassword } = req.body;
-    const { token } = req.query
+	
+    const { token, newPassword } = req.body;
+    console.log("Token:", token)
+    console.log("newPassword:", newPassword)
 
 	try {
 

@@ -1,10 +1,14 @@
-// handle login-form submission
+const togglePasswordBtn = document.getElementById("toggle-password");
+const passwordIcon = document.getElementById("password-icon");
 const resetPasswordForm = document.getElementById("reset-form");
 const loadingSpinner = document.getElementById("loading-spinner");
+
 
 resetPasswordForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
+    const url = new URL(window.location.href)
+    const token = url.searchParams.get("token");
 	const newPassword = document.getElementById("password").value.trim();
 
 	if (!isValidPassword(newPassword)) {
@@ -26,7 +30,7 @@ resetPasswordForm.addEventListener("submit", async (event) => {
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ newPassword }),
+				body: JSON.stringify({ token, newPassword }),
 			}
 		);
 
@@ -72,3 +76,19 @@ function isValidPassword(password) {
 		password.length >= minLength && hasLetter && hasNumber && hasSpecialChar
 	);
 }
+
+togglePasswordBtn.addEventListener("click", () => {
+	const passwordInput = document.getElementById("password");
+	const isPasswordVisible = passwordInput.type === "text";
+
+	passwordInput.type = isPasswordVisible ? "password" : "text";
+
+	passwordIcon.classList.toggle("fa-eye");
+	passwordIcon.classList.toggle("fa-eye-slash");
+
+	togglePasswordBtn.setAttribute(
+		"aria-label",
+		isPasswordVisible ? "Show password" : "Hide password"
+	);
+});
+
