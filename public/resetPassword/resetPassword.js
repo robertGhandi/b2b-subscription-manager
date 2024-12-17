@@ -2,13 +2,14 @@ const togglePasswordBtn = document.getElementById("toggle-password");
 const passwordIcon = document.getElementById("password-icon");
 const resetPasswordForm = document.getElementById("reset-form");
 const loadingSpinner = document.getElementById("loading-spinner");
+const feedback = document.getElementById("password-feedback");
 
+const url = new URL(window.location.href);
+const token = url.searchParams.get("token");
 
 resetPasswordForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
-    const url = new URL(window.location.href)
-    const token = url.searchParams.get("token");
 	const newPassword = document.getElementById("password").value.trim();
 
 	if (!isValidPassword(newPassword)) {
@@ -29,7 +30,10 @@ resetPasswordForm.addEventListener("submit", async (event) => {
 			"https://b2b-subscription-manager.vercel.app/api/v1/auth/reset-password",
 			{
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
 				body: JSON.stringify({ token, newPassword }),
 			}
 		);
@@ -91,4 +95,3 @@ togglePasswordBtn.addEventListener("click", () => {
 		isPasswordVisible ? "Show password" : "Hide password"
 	);
 });
-
