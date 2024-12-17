@@ -131,3 +131,34 @@ body {
 		transform: rotate(360deg);
 	}
 }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container .signup-input {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    color: gray;
+}
+
+.toggle-password:hover {
+    color: #7f56d8;
+}
+
+.eye-icon {
+    font-size: 18px;
+}
+

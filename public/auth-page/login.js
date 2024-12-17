@@ -1,7 +1,9 @@
-// handle login-form submission
 const loginForm = document.getElementById("login-form");
 const loadingSpinner = document.getElementById("loading-spinner");
+const togglePasswordBtn = document.getElementById("toggle-password");
+const passwordIcon = document.getElementById("password-icon");
 
+// handle login-form submission
 loginForm.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
@@ -59,3 +61,18 @@ function showLoading(isLoading) {
 		console.warn("Loading spinner element not found.");
 	}
 }
+
+togglePasswordBtn.addEventListener("click", () => {
+	const passwordInput = document.getElementById("password");
+	const isPasswordVisible = passwordInput.type === "text";
+
+	passwordInput.type = isPasswordVisible ? "password" : "text";
+
+	passwordIcon.classList.toggle("fa-eye");
+	passwordIcon.classList.toggle("fa-eye-slash");
+
+	togglePasswordBtn.setAttribute(
+		"aria-label",
+		isPasswordVisible ? "Show password" : "Hide password"
+	);
+});

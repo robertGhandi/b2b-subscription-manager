@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Signup page</title>
 		<link rel="stylesheet" href="./signup.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<main class="main">
@@ -31,13 +35,23 @@
 							placeholder="Email"
 							required
 						/>
-						<input
-							class="signup-input"
-							id="password"
-							type="password"
-							placeholder="Create Password"
-							required
-						/>
+						<div class="password-container">
+							<input
+								class="signup-input"
+								id="password"
+								type="password"
+								placeholder="Create Password"
+								required
+							/>
+							<button
+								type="button"
+								id="toggle-password"
+								class="toggle-password"
+								aria-label="Show password"
+							>
+								<i id="password-icon" class="fas fa-eye"></i>
+							</button>
+						</div>
 						<p id="password-feedback" class="password-feedback"></p>
 						<button
 							id="signup-btn"
@@ -52,10 +66,10 @@
 					Already have an account? <a href="./login.html">Log in</a>
 				</p>
 				<p class="response-message" id="responseMessage"></p>
-                <div id="loading-spinner" style="display: none;">
-                    <div class="spinner"></div>
-                </div>
-            </section>
+				<div id="loading-spinner" style="display: none">
+					<div class="spinner"></div>
+				</div>
+			</section>
 		</main>
 		<script src="./signup.js"></script>
 	</body>

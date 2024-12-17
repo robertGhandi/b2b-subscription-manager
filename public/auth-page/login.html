@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login page</title>
 		<link rel="stylesheet" href="./login.css" />
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<main class="main">
@@ -24,29 +28,40 @@
 							placeholder="Email"
 							required
 						/>
-						<input
-							class="login-input"
-							id="password"
-							type="password"
-							placeholder="Password"
-							required
-						/>
+						<div class="password-container">
+							<input
+								class="login-input"
+								id="password"
+								type="password"
+								placeholder="Password"
+								required
+							/>
+							<button
+								type="button"
+								id="toggle-password"
+								class="toggle-password"
+								aria-label="Show password"
+							>
+								<i id="password-icon" class="fas fa-eye"></i>
+							</button>
+						</div>
 						<button id="Login-btn" class="login-btn" type="submit">
 							Log in
 						</button>
 					</div>
 				</form>
 				<p class="helper-link">
-					Forgot password? <a href="../forgot-password/forgotPassword.html">Recover</a>
+					Forgot password?
+					<a href="../forgot-password/forgotPassword.html">Recover</a>
 				</p>
 				<p class="helper-link">
 					Don't have an account? <a href="./signup.html">Sign up</a>
 				</p>
 				<p id="responseMessage" class="response-message"></p>
-                <div id="loading-spinner" style="display: none;">
-                    <div class="spinner"></div>
-                </div>
-            </section>
+				<div id="loading-spinner" style="display: none">
+					<div class="spinner"></div>
+				</div>
+			</section>
 		</main>
 		<script src="./login.js"></script>
 	</body>
