@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	font-family: Arial, sans-serif;
 	display: flex;
-	height: 100vh;
+	
 }
 
 .dashboard {
@@ -12,7 +12,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-	background:  #f2ecfa;
+	background: #f2ecfa;
 	color: black;
 	width: 250px;
 	padding: 20px;
@@ -20,6 +20,7 @@ body {
 
 .brand span {
 	font-weight: bold;
+    color: #7f56d8;
 }
 
 .sidebar nav ul {
@@ -28,10 +29,11 @@ body {
 }
 
 .sidebar nav ul li {
-	margin: 15px 0;
+	margin: 5px 0;
 	cursor: pointer;
 	padding: 10px;
 	border-radius: 5px;
+
 }
 
 .sidebar nav ul li.active,
@@ -55,7 +57,7 @@ main {
 .search {
 	padding: 8px 12px;
 	border: 1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 .user-info {
@@ -72,7 +74,7 @@ main {
 }
 
 .stat-card {
-	background:  #f2ecfa;
+	background: #f2ecfa;
 	padding: 20px;
 	border-radius: 5px;
 	text-align: center;
@@ -114,11 +116,11 @@ main {
 }
 
 .content-section {
-  display: none;
+	display: none;
 }
 
 .content-section.active {
-  display: block;
+	display: block;
 }
 
 .logout {
@@ -129,4 +131,34 @@ main {
 	cursor: pointer;
 	padding: 10px;
 	text-align: left;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+}
+
+th {
+	background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+.sub-btn {
+    border-radius: 8px;
+    background-color: #7f56d8;
+    padding: 12px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
 }

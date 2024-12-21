@@ -1,23 +1,3 @@
-document.querySelectorAll(".dropdown").forEach((dropdown) => {
-	dropdown.addEventListener("mouseenter", () => {
-		const menu = dropdown.querySelector(".dropdown-menu");
-		menu.style.display = "block";
-		menu.style.opacity = "0";
-		setTimeout(() => {
-			menu.style.opacity = "1";
-			menu.style.transition = "opacity 0.3s ease";
-		}, 10);
-	});
-
-	dropdown.addEventListener("mouseleave", () => {
-		const menu = dropdown.querySelector(".dropdown-menu");
-		menu.style.opacity = "0";
-		setTimeout(() => {
-			menu.style.display = "none";
-		}, 300);
-	});
-});
-
 function SignUp() {
 	window.location.href = "../auth-page/signup.html";
 }

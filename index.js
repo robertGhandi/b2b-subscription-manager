@@ -3,7 +3,7 @@ const authRoutes = require("./routes/auth.routes");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const subscriptionRoutes = require("./routes/subscription.routes");
 const mongoose = require("mongoose");
 const path = require("path");
 const PORT = 3000;
@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/subscriptions", subscriptionRoutes)
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {

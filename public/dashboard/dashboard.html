@@ -1,113 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SubGenius Dashboard</title>
-  <link rel="stylesheet" href="./dashboard.css">
-</head>
-<body>
-  <div class="dashboard">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <h2 class="brand">Sub<span>Genius</span></h2>
-      <nav>
-        <ul>
-          <li class="active"><span class="icon">📊</span> Dashboard</li>
-          <li><span class="icon"><img src="./images/subscription-icon.svg" alt=""></span> Subscription</li>
-          <li><span class="icon"><img src="./images/renewal-icon.svg" alt=""></span> Renewals</li>
-          <li><span class="icon"><img src="./images/mdi_graph-line.svg" alt=""></span> Forecasting</li>
-          <li><span class="icon"><img src="./images/reports-icon.svg" alt=""></span> Reports</li>
-          <li><span class="icon"><img src="./images/settings-icon.svg" alt=""></span> Settings</li>
-        </ul>
-        <button onclick="handleLogout()" class="logout">Log out</button>
-      </nav>
-    </aside>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SubGenius Dashboard</title>
+		<link rel="stylesheet" href="./dashboard.css" />
+	</head>
+	<body>
+		<div class="dashboard">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<h2 class="brand"><span>Sub</span>Genius</h2>
+				<nav>
+					<ul>
+						<li class="active" data-target="Dashboard">
+							<span class="icon">📊</span> Dashboard
+						</li>
+						<li data-target="Subscription">
+							<span class="icon"
+								><img src="./images/subscription-icon.svg" alt=""
+							/></span>
+							Subscription
+						</li>
+						<li data-target="Renewals">
+							<span class="icon"
+								><img src="./images/renewal-icon.svg" alt=""
+							/></span>
+							Renewals
+						</li>
+						<li data-target="Forecasting">
+							<span class="icon"
+								><img src="./images/mdi_graph-line.svg" alt=""
+							/></span>
+							Forecasting
+						</li>
+						<li data-target="Reports">
+							<span class="icon"
+								><img src="./images/reports-icon.svg" alt=""
+							/></span>
+							Reports
+						</li>
+						<li data-target="Settings">
+							<span class="icon"
+								><img src="./images/settings-icon.svg" alt=""
+							/></span>
+							Settings
+						</li>
+					</ul>
+					<button onclick="handleLogout()" class="logout">
+						Log out
+					</button>
+				</nav>
+			</aside>
 
-    <!-- Main Content -->
-    <main>
-      <!-- Header -->
-      <header class="header">
-        <input type="text" class="search" placeholder="Search">
-        <div class="user-info">
-          <img id="profilePic" src="https://via.placeholder.com/40" alt="Profile Picture">
-          <span id="userName">Jake Gyll</span>
-        </div>
-      </header>
+			<!-- Main Content -->
+			<main>
+				<!-- Header -->
+				<header class="header">
+					<input type="text" class="search" placeholder="Search" />
+					<div class="user-info">
+						<img
+							id="profilePic"
+							src="https://via.placeholder.com/40"
+							alt="Profile Picture"
+						/>
+						<span id="userName">Jake Gyll</span>
+                        <span id="userEmail" style="display: none;"></span>
+                    </div>
+				</header>
 
-      <!-- Dashboard Stats -->
-      <section class="stats">
-        <div class="stat-card">
-          <p class="value">8,461</p>
-          <p class="label">Total Revenue</p>
-        </div>
-        <div class="stat-card">
-          <p class="value">8</p>
-          <p class="label">Active Subscriptions</p>
-        </div>
-        <div class="stat-card">
-          <p class="value">24</p>
-          <p class="label">Churn Rate</p>
-        </div>
-        <div class="stat-card">
-          <p class="value">24</p>
-          <p class="label">Forecasted Revenue</p>
-        </div>
-      </section>
+				<!-- Dashboard Section -->
+				<section
+					data-section="Dashboard"
+					class="content-section active"
+				>
+					<div class="stats">
+						<div class="stat-card">
+                            <span><img src="./images/total-revenue-icon.svg" alt=""></span>
+							<p class="value">8,461</p>
+							<p class="label">Total Revenue</p>
+						</div>
+						<div class="stat-card">
+                            <span><img src="./images/active-subscription-icon.svg" alt="active-subscription-icon"></span>
+							<p class="value">8</p>
+							<p class="label">Active Subscriptions</p>
+						</div>
+						<div class="stat-card">
+                            <span><img src="./images/churn-rate-icon.svg" alt="churn-rate-icon"></span>
+							<p class="value">24%</p>
+							<p class="label">Churn Rate</p>
+						</div>
+						<div class="stat-card">
+                            <span><img src="./images/mdi_graph-line.svg" alt="forecast-icon"></span>
+							<p class="value">$24,000</p>
+							<p class="label">Forecasted Revenue</p>
+						</div>
+					</div>
 
-      <!-- Billing and Transactions -->
-      <section class="billing-transactions">
-        <div class="current-billing">
-          <h3>Current Billing Cycle</h3>
-          <table>
-            <tr>
-              <th>Subscription</th>
-              <th>Action</th>
-            </tr>
-            <tr>
-              <td>Subscription</td>
-              <td><button class="cancel">Cancel</button></td>
-            </tr>
-            <tr>
-              <td>Subscription</td>
-              <td><button class="edit">Edit</button></td>
-            </tr>
-            <tr>
-              <td>Subscription</td>
-              <td><button class="reminder">Reminder</button></td>
-            </tr>
-          </table>
-        </div>
+					<!-- Billing and Transactions -->
+					<div class="billing-transactions">
+						<div class="current-billing">
+							<h3>Current Billing Cycle</h3>
+							<table>
+								<tr>
+									<th>Subscription</th>
+									<th>Action</th>
+								</tr>
+								<tr>
+									<td>Subscription</td>
+									<td>
+										<button class="cancel">Cancel</button>
+									</td>
+								</tr>
+								<tr>
+									<td>Subscription</td>
+									<td><button class="edit">Edit</button></td>
+								</tr>
+								<tr>
+									<td>Subscription</td>
+									<td>
+										<button class="reminder">
+											Reminder
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
 
-        <div class="recent-transactions">
-          <h3>Recent Transactions</h3>
-          <table>
-            <tr>
-              <th>Status</th>
-              <th>Customer Info</th>
-              <th>Date</th>
-            </tr>
-            <tr>
-              <td class="status in-trial">IN TRIAL</td>
-              <td>Mahva Tech<br><small>ma@gmail.com</small></td>
-              <td>02-12-24</td>
-            </tr>
-            <tr>
-              <td class="status active">ACTIVE</td>
-              <td>AFRITECH<br><small>afrit@gmail.com</small></td>
-              <td>29-11-24</td>
-            </tr>
-            <tr>
-              <td class="status cancelled">CANCELLED</td>
-              <td>BICC Inc.<br><small>bic@gmail.com</small></td>
-              <td>27-11-24</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-    </main>
-  </div>
+						<div class="recent-transactions">
+							<h3>Recent Transactions</h3>
+							<table>
+								<tr>
+									<th>Status</th>
+									<th>Customer Info</th>
+									<th>Date</th>
+								</tr>
+								<tr>
+									<td class="status in-trial">IN TRIAL</td>
+									<td>
+										Mahva Tech<br /><small
+											>ma@gmail.com</small
+										>
+									</td>
+									<td>02-12-24</td>
+								</tr>
+								<tr>
+									<td class="status active">ACTIVE</td>
+									<td>
+										AFRITECH<br /><small
+											>afrit@gmail.com</small
+										>
+									</td>
+									<td>29-11-24</td>
+								</tr>
+								<tr>
+									<td class="status cancelled">CANCELLED</td>
+									<td>
+										BICC Inc.<br /><small
+											>bic@gmail.com</small
+										>
+									</td>
+									<td>27-11-24</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</section>
 
-  <script src="./dashboard.js"></script>
-</body>
+				<!-- Subscription Section -->
+				<section data-section="Subscription" class="content-section">
+					<h2>Subscription Data</h2>
+                    <button class="sub-btn" onclick="CreateSubscription()">create subscription</button>
+					<table id="data-table">
+						<thead>
+							<tr>
+								<th>Customer Info</th>
+								<th>Subscription Info</th>
+								<th>Subscription Date</th>
+								<th>Amount</th>
+								<th>Renewal Date</th>
+							</tr>
+						</thead>
+						<tbody id="table-body"></tbody>
+					</table>
+				</section>
+			</main>
+		</div>
+
+		<script src="./dashboard.js"></script>
+	</body>
 </html>

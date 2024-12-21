@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Form</title>
+    <link rel="stylesheet" href="./sub.css">
+</head>
+<body>
+    <h2>Add Subscription</h2>
+    <form id="subscriptionForm">
+        <input type="text" id="customerName" placeholder="Customer Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <select id="subscriptionPlan" required>
+            <option value="" disabled selected>Select Subscription Plan</option>
+            <option value="Monthly">Monthly</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Annually">Annually</option>
+        </select>
+        <input type="number" id="duration" placeholder="Duration (e.g., 2 for 2 months)" required>
+        <input type="number" id="amount" placeholder="Amount" readonly>
+        <input type="date" id="dateOfSubscription" readonly>
+        <input type="date" id="renewalDate" readonly>
+        <button type="submit">Submit</button>
+        <div class="back-btn"><a href="../dashboard/dashboard.html" >back</a></div>
+        
+    </form>
+    
+    <p id="responseMessage"></p>
+    <script src="./sub.js"></script>
+</body>
+</html>
