@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleLogout() {
+    
 	window.location.href = "../landing-page/index.html";
 }
 

@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			responseMessage.textContent =
 				"Network error. Please try again later.";
 			responseMessage.style.color = "red";
+            
 			console.error("Network Error:", err);
 		}
 
