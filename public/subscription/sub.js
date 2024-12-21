@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		try {
 			const response = await fetch(
-				"http://localhost:3000/api/v1/subscriptions/create",
+				"https://b2b-subscription-manager.vercel.app/api/v1/subscriptions/create",
 				{
 					method: "POST",
 					headers: {

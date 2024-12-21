@@ -33,7 +33,7 @@ navItems.forEach((item) =>
 // Fetch and Render Subscription Table
 async function fetchSubscriptions() {
 	try {
-		const response = await fetch("http://localhost:3000/api/v1/subscriptions");
+		const response = await fetch("https://b2b-subscription-manager.vercel.app/api/v1/subscriptions");
 		if (response.ok) {
 			const result = await response.json();
 			
